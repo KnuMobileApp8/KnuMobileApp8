@@ -37,6 +37,9 @@
 		048635032A13A16200C834D0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 048635022A13A16200C834D0 /* FirebaseStorageCombine-Community */; };
 		048635052A13A21700C834D0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048635042A13A21700C834D0 /* AuthViewModel.swift */; };
 		048635072A13A29900C834D0 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048635062A13A29900C834D0 /* AuthView.swift */; };
+		049A12442A17170700BF8377 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A12432A17170700BF8377 /* ColorExtension.swift */; };
+		049A12462A1718E100BF8377 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A12452A1718E100BF8377 /* RegisterView.swift */; };
+		049A12482A17234200BF8377 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A12472A17234200BF8377 /* SettingView.swift */; };
 		42E4F84E2A0263BC00DA68EA /* KnuMobileApp8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4F84D2A0263BC00DA68EA /* KnuMobileApp8App.swift */; };
 		42E4F8502A0263BC00DA68EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4F84F2A0263BC00DA68EA /* ContentView.swift */; };
 		42E4F8522A0263BD00DA68EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42E4F8512A0263BD00DA68EA /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		048634CB2A13A07200C834D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		048635042A13A21700C834D0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		048635062A13A29900C834D0 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		049A12432A17170700BF8377 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		049A12452A1718E100BF8377 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		049A12472A17234200BF8377 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		42E4F84A2A0263BC00DA68EA /* KnuMobileApp8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnuMobileApp8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E4F84D2A0263BC00DA68EA /* KnuMobileApp8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnuMobileApp8App.swift; sourceTree = "<group>"; };
 		42E4F84F2A0263BC00DA68EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +124,9 @@
 				42E4F8532A0263BD00DA68EA /* Preview Content */,
 				048635042A13A21700C834D0 /* AuthViewModel.swift */,
 				048635062A13A29900C834D0 /* AuthView.swift */,
+				049A12432A17170700BF8377 /* ColorExtension.swift */,
+				049A12452A1718E100BF8377 /* RegisterView.swift */,
+				049A12472A17234200BF8377 /* SettingView.swift */,
 			);
 			path = KnuMobileApp8;
 			sourceTree = "<group>";
@@ -236,7 +245,10 @@
 				42E4F8502A0263BC00DA68EA /* ContentView.swift in Sources */,
 				42E4F84E2A0263BC00DA68EA /* KnuMobileApp8App.swift in Sources */,
 				048635072A13A29900C834D0 /* AuthView.swift in Sources */,
+				049A12482A17234200BF8377 /* SettingView.swift in Sources */,
+				049A12462A1718E100BF8377 /* RegisterView.swift in Sources */,
 				048635052A13A21700C834D0 /* AuthViewModel.swift in Sources */,
+				049A12442A17170700BF8377 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

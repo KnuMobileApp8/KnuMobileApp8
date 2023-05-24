@@ -31,6 +31,8 @@ struct YourApp: App {
       NavigationView {
         AuthView()
               .environmentObject(authViewModel)
+        RegisterView()
+              .environmentObject(authViewModel)
       }
     }
   }

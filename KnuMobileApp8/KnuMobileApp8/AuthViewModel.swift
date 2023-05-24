@@ -12,7 +12,8 @@ import FirebaseAuth
 class AuthViewModel: ObservableObject {
     
     @Published var currentUser: Firebase.User?
-    
+    @State private var isLoggedIn = false
+
     init() {
         currentUser = Auth.auth().currentUser
     }
@@ -21,10 +22,13 @@ class AuthViewModel: ObservableObject {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("Error : \(error.localizedDescription)")
+                self.isLoggedIn = false // 로그인 실패 시 isLoggedIn 값을 false로 설정
                 return
             }
             
             self.currentUser = result?.user
+            self.isLoggedIn = true // 로그인 성공 시 전환
+
         }
     }
     
@@ -33,16 +37,16 @@ class AuthViewModel: ObservableObject {
         try? Auth.auth().signOut()
     }
     
-    func registerUser(email: String, password: String) {
+    func registerUser(nickname: String, email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("Error : \(error.localizedDescription)")
                 return
             }
-            
-            guard let user = result?.user else { return }
-            
-            print(user.uid)
+            if result != nil {
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = nickname
+            }
         }
     }
 }
