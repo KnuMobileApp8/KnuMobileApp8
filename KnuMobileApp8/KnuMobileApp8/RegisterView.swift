@@ -51,14 +51,14 @@ struct RegisterView: View {
                 }
                 VStack(alignment: .leading) {
                     Text("비밀번호")
-                    SecureField("Nickname", text: $pw)
+                    SecureField("비밀번호를 입력해주세요.", text: $pw)
                         .padding()
                         .background(.thinMaterial)
                         .cornerRadius(10)
                 }
                 VStack(alignment: .leading) {
                     Text("비밀번호 확인")
-                    SecureField("비밀번호를 다시 입력해주세요", text: $passwordConfirmText)
+                    SecureField("비밀번호를 다시 입력해주세요.", text: $passwordConfirmText)
                         .padding()
                         .background(.thinMaterial)
                         .border(.red, width: passwordConfirmText != pw ? 1 : 0)
