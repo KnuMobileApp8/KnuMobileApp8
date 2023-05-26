@@ -71,12 +71,6 @@ struct AuthView: View {
                         .padding()
                         
                         
-                        
-//                        Button {
-//                            viewModel.logout()
-//                        } label: {
-//                            Text("로그아웃")
-//                        }
                     }
                     // 로그인이 성공하면 ContentView로 전환됨
                     NavigationLink(destination: SettingView(), isActive: $isLoggedIn) {
