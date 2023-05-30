@@ -14,6 +14,7 @@ struct DisplayListView: View {
         NavigationView {
             VStack() {
                 List(info.displays) { display in
+                    // 상세정보 연결 필요
                     NavigationLink(destination: Text(display.place)) {
                         DisplayRow(display: display)
                             .listRowInsets(EdgeInsets())
@@ -31,5 +32,6 @@ struct DisplayListView: View {
 struct DisplayListView_Previews: PreviewProvider {
     static var previews: some View {
         DisplayListView()
+            .environmentObject(DisplayModel())
     }
 }
