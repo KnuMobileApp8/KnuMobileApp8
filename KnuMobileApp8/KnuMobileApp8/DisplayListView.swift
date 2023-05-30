@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct DisplayListView: View {
+    @EnvironmentObject private var info: DisplayModel
+    
     var body: some View {
-        
-        VStack() {
-            List(displays) { display in
-                DisplayRow(display: display)
-                    .listRowInsets(EdgeInsets())
-                    .alignmentGuide(.listRowSeparatorLeading) { viewDimensions in
-                        return 0
+        NavigationView {
+            VStack() {
+                List(info.displays) { display in
+                    NavigationLink(destination: Text(display.place)) {
+                        DisplayRow(display: display)
+                            .listRowInsets(EdgeInsets())
+                            .alignmentGuide(.listRowSeparatorLeading) { viewDimensions in
+                                return 0
+                            }
                     }
+                }.navigationTitle("전시/공연")
             }
         }
+        
     }
 }
 

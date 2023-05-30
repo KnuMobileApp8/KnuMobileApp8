@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct DisplayRow: View {
-    let display: Display
+    var display: Display
     
     var body: some View {
+        
         HStack() {
             displayImage
             displayDescription
             Spacer()
-            tailView
+            //            tailView
         }
+        
         .frame(height: 160)
         .background(.white)
         .padding(.vertical, 0)
@@ -33,28 +35,33 @@ private extension DisplayRow {
     
     var displayDescription: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(display.title)
-                .font(.title)
+            Text(display.subject)
+                .font(.title3)
+                .fontWeight(.bold)
                 .padding(.bottom, 10)
             HStack {
                 Image(systemName: "mappin")
                     .frame(width: 15)
                 Text(display.place)
+                    .lineLimit(1)
             }
             HStack {
                 Image(systemName: "eye")
                     .frame(width: 15)
-                Text(display.gubun)
+                Text(display.eventGubunName)
             }
             HStack {
                 Image(systemName: "calendar")
                     .frame(width: 15)
-                Text(display.date)
+                VStack(alignment: .leading) {
+                    Text(display.startDate + " ~")
+                    Text(display.endDate)
+                }
             }
             HStack {
                 Image(systemName: "wonsign")
                     .frame(width: 15)
-                Text(display.price)
+                Text(display.payGubunName)
             }
         }
         .padding([.top, .bottom], 10)
@@ -62,16 +69,13 @@ private extension DisplayRow {
         .font(.footnote)
     }
     
-    var tailView: some View {
-        
-        HStack(spacing: 10) {
-            Image(systemName: "heart")
-            Image(systemName: "greaterthan")
-        }
-        .frame(width: 35)
-        .padding(.trailing, 10)
-    }
+    //    var tailView: some View {
+    //        WishButton(display: display)
+    //            .frame(width: 5)
+    //            .padding(.trailing, 10)
+    //    }
 }
+
 struct DisplayRow_Previews: PreviewProvider {
     static var previews: some View {
         DisplayListView()

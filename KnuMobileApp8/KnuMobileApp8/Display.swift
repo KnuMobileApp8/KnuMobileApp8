@@ -7,22 +7,55 @@
 
 import Foundation
 
-struct Display : Identifiable{
-    var id = UUID()
-    let title: String
+struct Display: Codable {
+    let endDate, payGubunName, payGubun, subject: String
     let place: String
-    let gubun: String
-    let date: String
-    let price: String
+    let content: JSONNull?
+    let eventGubunName, eventGubun, startDate: String
+    var id: UUID = UUID()
+    var isWished: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case endDate = "end_date"
+        case payGubunName = "pay_gubun_name"
+        case payGubun = "pay_gubun"
+        case subject, place, content
+        case eventGubunName = "event_gubun_name"
+        case eventGubun = "event_gubun"
+        case startDate = "start_date"
+    }
 }
 
-var displays = [
-    Display(title: "Popo", place: "대구미술관", gubun: "전시", date: "2023-01-02 ~ 2023-01-08", price: "3000"),
-    Display(title: "Can I B U", place: "동성로아트홀", gubun: "공연", date: "2023-02-02 ~ 2023-02-08", price: "free"),
-    Display(title: "Lovelovelove", place: "대구미술관", gubun: "전시", date: "2023-03-02 ~ 2023-03-08", price: "12000"),
-    Display(title: "Datoom", place: "동성로아트홀", gubun: "공연", date: "2023-04-02 ~ 2023-04-08", price: "free"),
-    Display(title: "Popo", place: "대구미술관", gubun: "전시", date: "2023-01-02 ~ 2023-01-08", price: "3000"),
-    Display(title: "Can I B U", place: "동성로아트홀", gubun: "공연", date: "2023-02-02 ~ 2023-02-08", price: "free"),
-    Display(title: "Lovelovelove", place: "대구미술관", gubun: "전시", date: "2023-03-02 ~ 2023-03-08", price: "12000"),
-    Display(title: "Datoom", place: "동성로아트홀", gubun: "공연", date: "2023-04-02 ~ 2023-04-08", price: "free")
+class JSONNull: Codable, Hashable {
+    
+    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+        return true
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(0)
+    }
+    
+    public init() {}
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if !container.decodeNil() {
+            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encodeNil()
+    }
+}
+
+extension Display: Identifiable {}
+extension Display: Equatable {}
+
+var displaySamples = [
+    Display(endDate: "aaa", payGubunName: "Aaa", payGubun: "AAA", subject: "AAA", place: "AAA", content: JSONNull(), eventGubunName: "aa", eventGubun: "AA", startDate: "AAAA"),
+    Display(endDate: "aaa", payGubunName: "Aaa", payGubun: "AAA", subject: "AAA", place: "AAA", content: JSONNull(), eventGubunName: "aa", eventGubun: "AA", startDate: "AAAA")
 ]
+
