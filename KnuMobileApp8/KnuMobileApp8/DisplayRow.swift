@@ -16,7 +16,7 @@ struct DisplayRow: View {
             displayImage
             displayDescription
             Spacer()
-            //            tailView
+            tailView
         }
         
         .frame(height: 160)
@@ -69,15 +69,16 @@ private extension DisplayRow {
         .font(.footnote)
     }
     
-    //    var tailView: some View {
-    //        WishButton(display: display)
-    //            .frame(width: 5)
-    //            .padding(.trailing, 10)
-    //    }
+        var tailView: some View {
+            WishButton(display: display)
+                .frame(width: 5)
+                .padding(.trailing, 10)
+        }
 }
 
 struct DisplayRow_Previews: PreviewProvider {
     static var previews: some View {
         DisplayListView()
+            .environmentObject(DisplayModel())
     }
 }
