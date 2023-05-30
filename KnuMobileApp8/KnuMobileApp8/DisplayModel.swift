@@ -13,19 +13,20 @@ class DisplayModel: ObservableObject {
     @Published var displays: [Display]
     
     func getCurrentDate() -> String {
-        var formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm"
-        var currentDate = formatter.string(from: Date())
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM"
+        let currentDate = formatter.string(from: Date())
         return currentDate
     }
     
     init() {
         self.displays = []
-        getInfo(in: getCurrentDate())
+        getInfo(about: "DP")
+        getInfo(about: "PF")
     }
     
-    func getInfo(in date: String) {
-        let url = "https://dgfca.or.kr/ajax/event/list.json?event_gubun=DP&start_date=" + date
+    func getInfo(about gubun: String) {
+        let url = "https://dgfca.or.kr/ajax/event/list.json?event_gubun=\(gubun)&start_date=\(getCurrentDate())"
         AF.request(url,
                    method: .get,
                    parameters: nil,
@@ -35,7 +36,7 @@ class DisplayModel: ObservableObject {
         .responseDecodable(of: [Display].self) { response in
             switch response.result {
             case .success(let data):
-                self.displays = data
+                self.displays.append(contentsOf: data)
                 print(self.displays[0])
             case .failure(let error):
                 print("Error: \(error)")
