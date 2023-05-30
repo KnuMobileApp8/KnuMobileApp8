@@ -12,14 +12,20 @@ import Alamofire
 class DisplayModel: ObservableObject {
     @Published var displays: [Display]
     
-    init() {
-        self.displays = []
-        getTest()
-        print("hello")
+    func getCurrentDate() -> String {
+        var formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-mm"
+        var currentDate = formatter.string(from: Date())
+        return currentDate
     }
     
-    func getTest() {
-        let url = "https://dgfca.or.kr/ajax/event/list.json?event_gubun=DP&start_date=2023-08"
+    init() {
+        self.displays = []
+        getInfo(in: getCurrentDate())
+    }
+    
+    func getInfo(in date: String) {
+        let url = "https://dgfca.or.kr/ajax/event/list.json?event_gubun=DP&start_date=" + date
         AF.request(url,
                    method: .get,
                    parameters: nil,
