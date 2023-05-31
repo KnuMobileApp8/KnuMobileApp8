@@ -53,8 +53,9 @@ struct AuthView: View {
                                     .foregroundColor(Color.white))
                                 .padding(.vertical, 2)
                         }
-                        //                    .buttonStyle(ShrinkButtonStyle())
+                        //                     .buttonStyle(ShrinkButtonStyle())
                         .padding()
+                        
                         
                         Button (action: {
                             isRegistering = true // 회원가입 버튼을 누르면 isRegistering을 true로 설정하여 RegisterView로 전환
@@ -69,6 +70,7 @@ struct AuthView: View {
                         }
                         //                    .buttonStyle(ShrinkButtonStyle())
                         .padding()
+                        
                         
                         
                     }

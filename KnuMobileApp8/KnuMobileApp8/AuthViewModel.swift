@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 
 class AuthViewModel: ObservableObject {
-    
+    @Published var loginError: String = ""
     @Published var currentUser: Firebase.User?
     @State private var isLoggedIn = false
 
@@ -23,6 +23,7 @@ class AuthViewModel: ObservableObject {
             if let error = error {
                 print("Error : \(error.localizedDescription)")
                 self.isLoggedIn = false // 로그인 실패 시 isLoggedIn 값을 false로 설정
+                self.loginError = "Invalid email or password" // Set an error message to display in the view
                 return
             }
             
@@ -33,7 +34,7 @@ class AuthViewModel: ObservableObject {
     }
     
     func logout() {
-        currentUser = nil
+        self.currentUser = nil
         self.isLoggedIn = false
         try? Auth.auth().signOut()
     }
