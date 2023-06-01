@@ -7,16 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423CFE5A2A1D9F6500458777 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 423CFE592A1D9F6500458777 /* Alamofire */; };
+		428EB87A2A25ECA5004E6A11 /* WishButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EB8792A25ECA5004E6A11 /* WishButton.swift */; };
+		428EB87C2A25EF6C004E6A11 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EB87B2A25EF6C004E6A11 /* WishListView.swift */; };
+		42CB57B52A147E1200AF0CF8 /* DisplayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB57B42A147E1200AF0CF8 /* DisplayListView.swift */; };
+		42CB57B72A147E1B00AF0CF8 /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB57B62A147E1B00AF0CF8 /* DisplayRow.swift */; };
+		42CB57B92A1486D400AF0CF8 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB57B82A1486D400AF0CF8 /* Display.swift */; };
+		42CB57BF2A1729A600AF0CF8 /* DisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB57BE2A1729A600AF0CF8 /* DisplayModel.swift */; };
 		42E4F84E2A0263BC00DA68EA /* KnuMobileApp8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4F84D2A0263BC00DA68EA /* KnuMobileApp8App.swift */; };
-		42E4F8502A0263BC00DA68EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4F84F2A0263BC00DA68EA /* ContentView.swift */; };
 		42E4F8522A0263BD00DA68EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42E4F8512A0263BD00DA68EA /* Assets.xcassets */; };
 		42E4F8552A0263BD00DA68EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42E4F8542A0263BD00DA68EA /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		428EB8792A25ECA5004E6A11 /* WishButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishButton.swift; sourceTree = "<group>"; };
+		428EB87B2A25EF6C004E6A11 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		42CB57B42A147E1200AF0CF8 /* DisplayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayListView.swift; sourceTree = "<group>"; };
+		42CB57B62A147E1B00AF0CF8 /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
+		42CB57B82A1486D400AF0CF8 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		42CB57BE2A1729A600AF0CF8 /* DisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModel.swift; sourceTree = "<group>"; };
 		42E4F84A2A0263BC00DA68EA /* KnuMobileApp8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnuMobileApp8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E4F84D2A0263BC00DA68EA /* KnuMobileApp8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnuMobileApp8App.swift; sourceTree = "<group>"; };
-		42E4F84F2A0263BC00DA68EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42E4F8512A0263BD00DA68EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42E4F8542A0263BD00DA68EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -26,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423CFE5A2A1D9F6500458777 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +64,12 @@
 			isa = PBXGroup;
 			children = (
 				42E4F84D2A0263BC00DA68EA /* KnuMobileApp8App.swift */,
-				42E4F84F2A0263BC00DA68EA /* ContentView.swift */,
+				42CB57B42A147E1200AF0CF8 /* DisplayListView.swift */,
+				42CB57B62A147E1B00AF0CF8 /* DisplayRow.swift */,
+				42CB57B82A1486D400AF0CF8 /* Display.swift */,
+				42CB57BE2A1729A600AF0CF8 /* DisplayModel.swift */,
+				428EB87B2A25EF6C004E6A11 /* WishListView.swift */,
+				428EB8792A25ECA5004E6A11 /* WishButton.swift */,
 				42E4F8512A0263BD00DA68EA /* Assets.xcassets */,
 				42E4F8532A0263BD00DA68EA /* Preview Content */,
 			);
@@ -83,6 +100,9 @@
 			dependencies = (
 			);
 			name = KnuMobileApp8;
+			packageProductDependencies = (
+				423CFE592A1D9F6500458777 /* Alamofire */,
+			);
 			productName = KnuMobileApp8;
 			productReference = 42E4F84A2A0263BC00DA68EA /* KnuMobileApp8.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 42E4F8412A0263BC00DA68EA;
+			packageReferences = (
+				423CFE582A1D9F6500458777 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 42E4F84B2A0263BC00DA68EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E4F8502A0263BC00DA68EA /* ContentView.swift in Sources */,
+				42CB57B92A1486D400AF0CF8 /* Display.swift in Sources */,
+				428EB87C2A25EF6C004E6A11 /* WishListView.swift in Sources */,
+				42CB57BF2A1729A600AF0CF8 /* DisplayModel.swift in Sources */,
+				428EB87A2A25ECA5004E6A11 /* WishButton.swift in Sources */,
+				42CB57B72A147E1B00AF0CF8 /* DisplayRow.swift in Sources */,
 				42E4F84E2A0263BC00DA68EA /* KnuMobileApp8App.swift in Sources */,
+				42CB57B52A147E1200AF0CF8 /* DisplayListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +367,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		423CFE582A1D9F6500458777 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		423CFE592A1D9F6500458777 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 423CFE582A1D9F6500458777 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 42E4F8422A0263BC00DA68EA /* Project object */;
 }
