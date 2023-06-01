@@ -11,7 +11,7 @@ import SwiftUI
 struct KnuMobileApp8App: App {
     var body: some Scene {
         WindowGroup {
-            DisplayListView()
+            ContentView()
                 .environmentObject(DisplayModel())
         }
     }

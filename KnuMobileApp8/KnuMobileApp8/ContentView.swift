@@ -15,34 +15,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @EnvironmentObject private var info: DisplayModel
     var text = " 검색할  값"
     @State var searchKeyWord = ""
     @State var showingAlert = false
-    
-    struct Festival : Identifiable{
-        var id = UUID()
-        let name: String
-        let date: String
-        let category : String
-        let location: String
-        let explanation: String
-        let price : Int
-    }
 
-
-    var festivals = [
-        Festival(name: "Cherry Blossom Festival", date: "April 1-10",category : "Exhibition", location: "Seoul", explanation: "Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms. Celebrate spring with the beauty of cherry blossoms." , price : 10000),
-        Festival(name: "Lantern Festival", date: "May 15-20", category : "Exhibition", location: "Busan", explanation: "Experience the colorful lantern parade and cultural performances.", price : 12000),
-        Festival(name: "Fireworks Festival", date: "July 1-5", category : "Exhibition", location: "Incheon", explanation: "Enjoy the spectacular fireworks show and beach parties.", price : 9000),
-        Festival(name: "Rock Festival", date: "July 20-25", category : "Exhibition", location: "Incheon", explanation: "Enjoy the spectacular fireworks show and beach parties.", price :   17000)
-    ]
-
-    
-    
     var body: some View {
-        
-        
         
         VStack(alignment: .leading){
             
@@ -121,9 +99,9 @@ struct ContentView: View {
                                     .background(Color.white)
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack {
-                                        ForEach(festivals) { festival in
-                                            NavigationLink(destination: SecondView(Data:  festival)) {
-                                                MainCard1(data : festival)
+                                        ForEach(info.displays) { display in
+                                            NavigationLink(destination: SecondView(Data: display)) {
+                                                MainCard1(data : display)
                                             }
                                             .buttonStyle(PlainButtonStyle())
                                         }
@@ -142,9 +120,9 @@ struct ContentView: View {
                                     .background(Color.white)
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack {
-                                        ForEach(festivals) { festival in
+                                        ForEach(info.displays) { display in
                                             NavigationLink(destination: ThirdView()) {
-                                                MainCard1(data : festival)
+                                                MainCard1(data : display)
                                             }
                                             .buttonStyle(PlainButtonStyle())
                                         }
@@ -161,8 +139,8 @@ struct ContentView: View {
                                     .foregroundColor(Color(red: 0.05, green: 0.047, blue: 0.047))
                                     .kerning(-0.14)
                                     .background(Color.white)
-                                ForEach(festivals) { festival in
-                                    ExtractedView(data: festival)
+                                ForEach(info.displays) { display in
+                                    DisplayRow(display: display)
                                 }
                             }
                             .padding(10)
@@ -170,6 +148,7 @@ struct ContentView: View {
                             Spacer()
                             
                         }
+                        
                         
                     }
                     .padding()
@@ -187,16 +166,15 @@ struct ContentView: View {
                         Text("Map")
                     }
                 
+                DisplayListView()
+                    .tabItem {
+                        Image(systemName: "4.circle")
+                        Text("Fourth")
+                    }
                 ThirdView()
                     .tabItem {
                         Image(systemName: "person")
                         Text("User Info")
-                    }
-                
-                ThirdView()
-                    .tabItem {
-                        Image(systemName: "4.circle")
-                        Text("Fourth")
                     }
             }
             
@@ -212,11 +190,11 @@ struct ContentView: View {
     
     //상세 페이지
     struct SecondView: View {
-        var Data : Festival
+        var Data : Display
         var body: some View {
             ScrollView{
                 VStack (alignment: .leading){
-                    Text(Data.name)
+                    Text(Data.subject)
                         .font(.custom("DMSans-Bold", size: 27))
                         .foregroundColor(Color.black)
                         .kerning(-1)
@@ -259,15 +237,18 @@ struct ContentView: View {
                                 Image(systemName: "calendar") // 달력 이미지
                                     .resizable()
                                     .frame(width: 20, height: 20) // 크기를 적절하게 조절하세요.
-                                Text("\(Data.date)")
-                                    .font(.system(size: 12))
+                                VStack(alignment: .leading) {
+                                    Text(Data.startDate + " ~")
+                                    Text(Data.endDate)
+                                }
+                                .font(.system(size: 12))
                                 
                             }
                             VStack {
                                 Image(systemName: "location.circle") // 장소 이미지
                                     .resizable()
                                     .frame(width: 20, height: 20) // 크기를 적절하게 조절하세요.
-                                Text("\(Data.location)")
+                                Text("\(Data.place)")
                                     .font(.system(size: 12))
                                 
                             }
@@ -275,7 +256,7 @@ struct ContentView: View {
                                 Image(systemName: "dollarsign.circle") // 가격 이미지
                                     .resizable()
                                     .frame(width: 20, height: 20) // 크기를 적절하게 조절하세요.
-                                Text("\(Data.price)")
+                                Text("\(Data.payGubunName)")
                                     .font(.system(size: 12))
                                 
                             }
@@ -283,7 +264,7 @@ struct ContentView: View {
                                 Image(systemName: "tag.circle") // 카테고리를 나타내는 이미지 (예시)
                                     .resizable()
                                     .frame(width: 20, height: 20) // 크기를 적절하게 조절하세요.
-                                Text("\(Data.category)")
+                                Text("\(Data.eventGubunName)")
                                     .font(.system(size: 12))
                                 
                             }
@@ -291,11 +272,11 @@ struct ContentView: View {
                         }.padding(.bottom, 2)
                         HStack{
                             
-                            Text("Category : \(Data.category)")
+                            Text("Category : \(Data.eventGubunName)")
                                 .font(.system(size: 12))
                                 .foregroundColor(.gray)
                                 .padding(.trailing, 10)
-                            Text("Price : \(Data.price)")
+                            Text("Price : \(Data.payGubunName)")
                                 .foregroundColor(.gray)
                                 .font(.system(size: 12))
                             
@@ -313,7 +294,7 @@ struct ContentView: View {
                             .frame(width: 136, height: 24)
                             .background(Color.white)
                         
-                        Text(Data.explanation)
+                        Text("\(Data.subject)입니다") // 상세 설명
                             .font(.system(size: 18)) // "Data.explanation"의 폰트 크기를 22로 변경
                         Spacer()
                         
@@ -337,7 +318,7 @@ struct ContentView: View {
     
     struct MainCard1: View {
         
-        var data :Festival
+        var data :Display
         var body: some View {
             
             VStack (alignment: .leading){
@@ -359,7 +340,7 @@ struct ContentView: View {
                     
                     
                     
-                    Text(data.name)
+                    Text(data.subject)
                         .font(.custom("Poppins-Medium", size: 17))
                         .foregroundColor(Color(red: 0.06, green: 0.06, blue: 0.062))
                         .frame(width: 138, height: 26)
@@ -410,38 +391,42 @@ struct ContentView: View {
             .navigationTitle("Third View") // 네비게이션 바의 타이틀 설정
         }
     }
+    
     // 메인 메뉴 Foreach문으로 출력되는 View페이지
     struct ExtractedView: View {
         
         
-        var data : Festival
+        var data : Display
         var body: some View {
             HStack {
-
+                
                 Image(systemName: "photo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 125, height: 130)
                     .padding()
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(data.name)
+                    Text(data.subject)
                         .font(.system(size: 15, weight: .bold))
                     HStack {
                         Image(systemName: "tag.circle")
                             .frame(width: 13)
-                        Text(data.category)
+                        Text(data.eventGubunName)
                             .font(.system(size: 12))
                     }
                     HStack{
                         Image(systemName: "calendar")
                             .frame(width: 13)
-                        Text(data.date)
-                            .font(.system(size: 12))
+                        VStack(alignment: .leading) {
+                            Text(data.startDate + " ~")
+                            Text(data.endDate)
+                        }
+                        .font(.system(size: 12))
                     }
                     HStack {
                         Image(systemName: "location.circle")
                             .frame(width: 13)
-                        Text(data.location)
+                        Text(data.place)
                             .font(.system(size: 12))
                     }
                     
