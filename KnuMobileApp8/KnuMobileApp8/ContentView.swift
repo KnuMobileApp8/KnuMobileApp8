@@ -19,6 +19,7 @@ struct ContentView: View {
     var text = " 검색할  값"
     @State var searchKeyWord = ""
     @State var showingAlert = false
+    @StateObject var mapController = MapController()
 
     var body: some View {
         
@@ -160,10 +161,13 @@ struct ContentView: View {
                     Text("Main")
                 }
                 
-                ThirdView()
+                MapView(mapController: mapController)
                     .tabItem {
                         Image(systemName: "map")
                         Text("Map")
+                    }
+                    .onSubmit(of: .search) {
+                        mapController.search()
                     }
                 
                 DisplayListView()

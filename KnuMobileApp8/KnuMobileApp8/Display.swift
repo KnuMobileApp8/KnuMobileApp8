@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct Display: Codable {
     let endDate, payGubunName, payGubun, subject: String
@@ -14,6 +15,8 @@ struct Display: Codable {
     let eventGubunName, eventGubun, startDate: String
     var id: UUID = UUID()
     var isWished: Bool = false
+    var placemark: MKPlacemark?
+    var coordinate: CLLocationCoordinate2D?
     
     enum CodingKeys: String, CodingKey {
         case endDate = "end_date"
@@ -52,10 +55,14 @@ class JSONNull: Codable, Hashable {
 }
 
 extension Display: Identifiable {}
-extension Display: Equatable {}
+extension Display: Equatable {
+    static func == (lhs: Display, rhs: Display) -> Bool {
+        return true
+    }
+}
 
 var displaySamples = [
-    Display(endDate: "aaa", payGubunName: "Aaa", payGubun: "AAA", subject: "AAA", place: "AAA", content: JSONNull(), eventGubunName: "aa", eventGubun: "AA", startDate: "AAAA"),
-    Display(endDate: "aaa", payGubunName: "Aaa", payGubun: "AAA", subject: "AAA", place: "AAA", content: JSONNull(), eventGubunName: "aa", eventGubun: "AA", startDate: "AAAA")
+    Display(endDate: "aaa", payGubunName: "Aaa", payGubun: "AAA", subject: "AAA", place: "AAA", content: JSONNull(), eventGubunName: "aa", eventGubun: "AA", startDate: "AAAA", placemark: nil, coordinate: nil),
+    Display(endDate: "aaa", payGubunName: "Aaa", payGubun: "AAA", subject: "AAA", place: "AAA", content: JSONNull(), eventGubunName: "aa", eventGubun: "AA", startDate: "AAAA", placemark: nil, coordinate: nil),
 ]
 
