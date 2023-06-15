@@ -49,7 +49,7 @@ struct DisplayView: View {
     }
 }
 
-struct BusinessView_Previews: PreviewProvider {
+struct DisplayView_Previews: PreviewProvider {
     static var previews: some View {
         DisplayView(mapController: MapController())
             .previewLayout(.sizeThatFits)
