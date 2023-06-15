@@ -20,15 +20,11 @@ struct ContentView: View {
     @State var searchKeyWord = ""
     @State var showingAlert = false
     @StateObject var mapController = MapController()
-
+    
     var body: some View {
-        
         VStack(alignment: .leading){
-            
-            
             TabView {
                 NavigationView {
-                    
                     VStack(alignment: .leading) {
                         //검색 창 시작
                         HStack {
@@ -101,7 +97,7 @@ struct ContentView: View {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack {
                                         ForEach(info.displays) { display in
-                                            NavigationLink(destination: SecondView(Data: display)) {
+                                            NavigationLink(destination: DetailView(Data: display)) {
                                                 MainCard1(data : display)
                                             }
                                             .buttonStyle(PlainButtonStyle())
@@ -181,144 +177,8 @@ struct ContentView: View {
                         Text("User Info")
                     }
             }
-            
-            
-            
-            
-        }
-        
-        
-        
-        
-    }
-    
-    //상세 페이지
-    struct SecondView: View {
-        var Data : Display
-        var body: some View {
-            ScrollView{
-                VStack (alignment: .leading){
-                    Text(Data.subject)
-                        .font(.custom("DMSans-Bold", size: 27))
-                        .foregroundColor(Color.black)
-                        .kerning(-1)
-                        .lineSpacing(-18) // SwiftUI에서는 line spacing이 pt 단위로 이루어집니다. line height에 대한 설정은 없으므로 line spacing을 사용하여 유사한 효과를 얻을 수 있습니다.
-                    
-                        .background(Color.white)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white)
-                        .shadow(color: Color(red: 0.01, green: 0.125, blue: 0.174, opacity: 0.05), radius: 40, x: 0, y: 20)
-                        .frame(height: 334)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round, dash: [10], dashPhase: 0))
-                                .foregroundColor(.clear)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 20)
-                                    //                                Color(red: 0.01, green: 0.125, blue: 0.174, opacity: 0.05)
-                                        .fill(Color.white)
-                                        .shadow(color: Color(red: 0.01, green: 0.125, blue: 0.174, opacity: 0.05), radius: 40, x: 0, y: 20)
-                                        .overlay(
-                                            // Image
-                                            Image(systemName: "photo")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width:  300, height: 300)
-                                                .foregroundColor(.gray)
-                                        )
-                                )
-                        )
-                    
-                    //                HStack {
-                    //                    Image(systemName: "calendar")
-                    //                        .frame(width: 15)
-                    //                    Text(display.date)
-                    //                }
-                    VStack (alignment: .leading){
-                        HStack{
-                            VStack {
-                                Image(systemName: "calendar") // 달력 이미지
-                                    .resizable()
-                                    .frame(width: 20, height: 20) // 크기를 적절하게 조절하세요.
-                                VStack(alignment: .leading) {
-                                    Text(Data.startDate + " ~")
-                                    Text(Data.endDate)
-                                }
-                                .font(.system(size: 12))
-                                
-                            }
-                            VStack {
-                                Image(systemName: "location.circle") // 장소 이미지
-                                    .resizable()
-                                    .frame(width: 20, height: 20) // 크기를 적절하게 조절하세요.
-                                Text("\(Data.place)")
-                                    .font(.system(size: 12))
-                                
-                            }
-                            VStack {
-                                Image(systemName: "dollarsign.circle") // 가격 이미지
-                                    .resizable()
-                                    .frame(width: 20, height: 20) // 크기를 적절하게 조절하세요.
-                                Text("\(Data.payGubunName)")
-                                    .font(.system(size: 12))
-                                
-                            }
-                            VStack {
-                                Image(systemName: "tag.circle") // 카테고리를 나타내는 이미지 (예시)
-                                    .resizable()
-                                    .frame(width: 20, height: 20) // 크기를 적절하게 조절하세요.
-                                Text("\(Data.eventGubunName)")
-                                    .font(.system(size: 12))
-                                
-                            }
-                            
-                        }.padding(.bottom, 2)
-                        HStack{
-                            
-                            Text("Category : \(Data.eventGubunName)")
-                                .font(.system(size: 12))
-                                .foregroundColor(.gray)
-                                .padding(.trailing, 10)
-                            Text("Price : \(Data.payGubunName)")
-                                .foregroundColor(.gray)
-                                .font(.system(size: 12))
-                            
-                        }.padding(.bottom, 2)
-                        //                    Text("Description")
-                        //                        .font(.custom("SFProDisplay-Bold", size: 20))
-                        //                        .foregroundColor(Color(red: 0.075, green: 0.059, blue: 0.149, opacity: 1))
-                        //                        .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)
-                        //                        .frame(width: 106, height: 24)
-                        //                        .background(Color.white)
-                        Text("Description")
-                            .font(.custom("SFProDisplay-Bold", size: 24)) // "Description"의 폰트 크기를 24로 변경
-                            .foregroundColor(Color(red: 0.075, green: 0.059, blue: 0.149, opacity: 1))
-                            .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)
-                            .frame(width: 136, height: 24)
-                            .background(Color.white)
-                        
-                        Text("\(Data.subject)입니다") // 상세 설명
-                            .font(.system(size: 18)) // "Data.explanation"의 폰트 크기를 22로 변경
-                        Spacer()
-                        
-                        
-                    }
-                }
-                .padding()
-                .navigationTitle("Second View") // 네비게이션 바의 타이틀 설정
-            }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    //
     
     struct MainCard1: View {
         
@@ -378,14 +238,6 @@ struct ContentView: View {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
     struct ThirdView: View {
         var body: some View {
             VStack {
@@ -398,12 +250,9 @@ struct ContentView: View {
     
     // 메인 메뉴 Foreach문으로 출력되는 View페이지
     struct ExtractedView: View {
-        
-        
         var data : Display
         var body: some View {
             HStack {
-                
                 Image(systemName: "photo")
                     .resizable()
                     .scaledToFit()
@@ -443,7 +292,7 @@ struct ContentView: View {
                 
                 
                 // NavigationLink를 사용하여 다른 View로 이동할 수 있는 버튼 생성
-                NavigationLink(destination: SecondView(Data:data )) {
+                NavigationLink(destination: DetailView(Data: data)) {
                     HStack {
                         Image(systemName: "chevron.right").foregroundColor(.gray)
                     }.padding(5)
@@ -452,10 +301,8 @@ struct ContentView: View {
             .frame(width: 350, height: 152)
             .background(Color(UIColor(red: 0.948, green: 0.948, blue: 0.948, alpha: 1)))
             .cornerRadius(20)
-            
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

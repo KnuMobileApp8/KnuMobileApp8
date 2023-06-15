@@ -9,16 +9,15 @@ import SwiftUI
 
 struct DisplayRow: View {
     var display: Display
+    var randomInt = Int.random(in: 1...6)
     
     var body: some View {
-        
-        HStack() {
+        HStack {
             displayImage
             displayDescription
             Spacer()
             tailView
         }
-        
         .frame(height: 160)
         .background(.white)
         .padding(.vertical, 0)
@@ -26,8 +25,9 @@ struct DisplayRow: View {
 }
 
 private extension DisplayRow {
+    
     var displayImage: some View {
-        Image("image")
+        Image("\(randomInt)")
             .frame(width: 110, height: 130)
             .cornerRadius(10)
             .clipped()
@@ -69,11 +69,11 @@ private extension DisplayRow {
         .font(.footnote)
     }
     
-        var tailView: some View {
-            WishButton(display: display)
-                .frame(width: 5)
-                .padding(.trailing, 10)
-        }
+    var tailView: some View {
+        WishButton(display: display)
+            .frame(width: 5)
+            .padding(.trailing, 10)
+    }
 }
 
 struct DisplayRow_Previews: PreviewProvider {
