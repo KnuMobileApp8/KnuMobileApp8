@@ -92,7 +92,6 @@ struct ContentView: View {
                                     .font(.custom("Poppins-Bold", size: 30))
                                     .foregroundColor(Color(red: 0.05, green: 0.047, blue: 0.047))
                                     .kerning(-0.14)
-                                
                                     .background(Color.white)
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack {
@@ -179,7 +178,7 @@ struct ContentView: View {
             }
         }
     }
-    
+
     struct MainCard1: View {
         
         var data :Display
@@ -189,7 +188,6 @@ struct ContentView: View {
                 // Add your views here
                 
                 Image(systemName: "photo")
-                
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 190.28, height: 124.77)
@@ -237,7 +235,7 @@ struct ContentView: View {
                 .cornerRadius(20)
         }
     }
-    
+
     struct ThirdView: View {
         var body: some View {
             VStack {
@@ -247,7 +245,7 @@ struct ContentView: View {
             .navigationTitle("Third View") // 네비게이션 바의 타이틀 설정
         }
     }
-    
+
     // 메인 메뉴 Foreach문으로 출력되는 View페이지
     struct ExtractedView: View {
         var data : Display
@@ -303,6 +301,7 @@ struct ContentView: View {
             .cornerRadius(20)
         }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
