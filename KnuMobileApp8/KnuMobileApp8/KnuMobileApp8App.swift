@@ -25,17 +25,15 @@ struct YourApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
   @StateObject private var authViewModel = AuthViewModel() // Create an instance of AuthViewModel as a @StateObject
+    @StateObject private var displayModel = DisplayModel()
 
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        ContentView()
-              .environmentObject(DisplayModel())
-        AuthView()
+          AuthView()
               .environmentObject(authViewModel)
-        RegisterView()
-              .environmentObject(authViewModel)
+      }
+      .environmentObject(displayModel)
       }
     }
   }
-}
