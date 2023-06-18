@@ -59,12 +59,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04B649D02A3DF8F400AACAAA /* AuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthView.swift; path = "../../../KnuMobileApp8 복사본/KnuMobileApp8/KnuMobileApp8/AuthView.swift"; sourceTree = "<group>"; };
-		04B649D12A3DF8F400AACAAA /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = "../../../KnuMobileApp8 복사본/KnuMobileApp8/KnuMobileApp8/ColorExtension.swift"; sourceTree = "<group>"; };
-		04B649D22A3DF8F500AACAAA /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = "../../../KnuMobileApp8 복사본/KnuMobileApp8/KnuMobileApp8/SettingView.swift"; sourceTree = "<group>"; };
-		04B649D32A3DF8F500AACAAA /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterView.swift; path = "../../../KnuMobileApp8 복사본/KnuMobileApp8/KnuMobileApp8/RegisterView.swift"; sourceTree = "<group>"; };
-		04B649D42A3DF8F500AACAAA /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthViewModel.swift; path = "../../../KnuMobileApp8 복사본/KnuMobileApp8/KnuMobileApp8/AuthViewModel.swift"; sourceTree = "<group>"; };
-		04B649DA2A3DFB2B00AACAAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04B649D02A3DF8F400AACAAA /* AuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		04B649D12A3DF8F400AACAAA /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		04B649D22A3DF8F500AACAAA /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		04B649D32A3DF8F500AACAAA /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		04B649D42A3DF8F500AACAAA /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		04B649DA2A3DFB2B00AACAAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		428EB8792A25ECA5004E6A11 /* WishButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishButton.swift; sourceTree = "<group>"; };
 		428EB87B2A25EF6C004E6A11 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		429077892A28AB5300579BFC /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };

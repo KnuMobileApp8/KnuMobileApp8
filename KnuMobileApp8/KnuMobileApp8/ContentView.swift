@@ -170,7 +170,7 @@ struct ContentView: View {
                         Image(systemName: "4.circle")
                         Text("Fourth")
                     }
-                ThirdView()
+                SettingView()
                     .tabItem {
                         Image(systemName: "person")
                         Text("User Info")
