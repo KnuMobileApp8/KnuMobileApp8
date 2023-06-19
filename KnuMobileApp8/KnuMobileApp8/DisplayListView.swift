@@ -14,8 +14,7 @@ struct DisplayListView: View {
         NavigationView {
             VStack() {
                 List(info.displays) { display in
-                    // 상세정보 연결 필요
-                    NavigationLink(destination: Text(display.place)) {
+                    NavigationLink(destination: DetailView(Data: display)) {
                         DisplayRow(display: display)
                             .listRowInsets(EdgeInsets())
                             .alignmentGuide(.listRowSeparatorLeading) { viewDimensions in

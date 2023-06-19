@@ -17,6 +17,7 @@ struct Display: Codable {
     var isWished: Bool = false
     var placemark: MKPlacemark?
     var coordinate: CLLocationCoordinate2D?
+    var imageNumber: Int = Int.random(in: 1...6)
     
     enum CodingKeys: String, CodingKey {
         case endDate = "end_date"

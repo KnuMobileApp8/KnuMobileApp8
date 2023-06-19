@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DisplayRow: View {
     var display: Display
-    var randomInt = Int.random(in: 1...6)
     
     var body: some View {
         HStack {
@@ -27,7 +26,7 @@ struct DisplayRow: View {
 private extension DisplayRow {
     
     var displayImage: some View {
-        Image("\(randomInt)")
+        Image("\(display.imageNumber)")
             .frame(width: 110, height: 130)
             .cornerRadius(10)
             .clipped()

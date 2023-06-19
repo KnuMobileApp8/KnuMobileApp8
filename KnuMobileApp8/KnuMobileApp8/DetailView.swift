@@ -118,7 +118,7 @@ struct DetailView: View {
                 }
             }
             .padding()
-            .navigationTitle("Second View") // 네비게이션 바의 타이틀 설정
+            .navigationTitle("상세 정보") // 네비게이션 바의 타이틀 설정
         }
     }
 }

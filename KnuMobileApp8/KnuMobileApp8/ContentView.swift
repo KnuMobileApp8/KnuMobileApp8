@@ -166,9 +166,10 @@ struct ContentView: View {
                     }
                 
                 DisplayListView()
+                    .environmentObject(DisplayModel())
                     .tabItem {
-                        Image(systemName: "4.circle")
-                        Text("Fourth")
+                        Image(systemName: "note.text")
+                        Text("List")
                     }
                 SettingView()
                     .tabItem {
